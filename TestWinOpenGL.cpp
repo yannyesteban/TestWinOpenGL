@@ -4,6 +4,8 @@
 #include "framework.h"
 #include "TestWinOpenGL.h"
 #include <GL/GL.h>
+#include <GL/glext.h>
+#include <gl/wglext.h>
 
 #pragma comment (lib, "opengl32.lib")
 #define MAX_LOADSTRING 100
@@ -21,6 +23,13 @@ INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 HDC ourWindowHandleToDeviceContext;
 void display()
 {
+	GLuint program = glCreateProgram();
+	
+	
+
+		// Create a vertex and fragment shader object.
+	GLuint m_vertexShader = glCreateShader(GL_VERTEX_SHADER);
+	GLuint m_fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 	/* rotate a triangle around */
 	glClear(GL_COLOR_BUFFER_BIT);
 	glBegin(GL_TRIANGLES);
